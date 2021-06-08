@@ -4,15 +4,18 @@ let formData = {
   email: "steve@steve.com"
 };
 
-function submitData() = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "Accept": "application/json"
-  },
-  body: JSON.stringify(formData);
+  const formInfo = { 
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }, 
+    body: JSON.stringify(formData)};
+ 
+ 
 
-  fetch("http://localhost:3000/users", submitData)
+  function submitData() {
+  return fetch("http://localhost:3000/users", formInfo)
     .then(function(response) {
       return response.json();
     })
@@ -23,4 +26,4 @@ function submitData() = {
       alert("Bad things! Ragnarők!");
       console.log(error.message);
     });
-};
+  }
